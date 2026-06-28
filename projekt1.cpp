@@ -2,18 +2,34 @@
 
 using namespace std;
 
+long long silnia(int n) {
+    if (n < 0)
+        return -1;
+
+    long long wynik = 1;
+    for (int i = 1; i <= n; i++)
+        wynik *= i;
+
+    return wynik;
+}
+
 int main() {
-    int a, b;
-    cout << "Podaj liczbe calkowita ";
-    cin >> a >> b;
+    int a;
+    cout << "Podaj liczbe calkowita: ";
+    cin >> a;
+
     int wyjscie;
     do {
-        cout << endl;
-        cout << endl;
-        cout << "MENU" << endl;
-        cout << "Podaj numer czynnosci, ktora chcesz wykonac" << endl;
-        cout << "0. Wyjscie" << endl;
+        cout << "\nMENU\n";
+        cout << "0. Wyjscie\n";
+        cout << "1. Oblicz silnie\n";
         cin >> wyjscie;
-    } while(wyjscie != 0);
+
+        if (wyjscie == 1) {
+            cout << "Silnia = " << silnia(a) << endl;
+        }
+
+    } while (wyjscie != 0);
+
     return 0;
 }
