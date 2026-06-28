@@ -31,5 +31,6 @@ int main() {
 
     } while (wyjscie != 0);
 
+
     return 0;
 }
