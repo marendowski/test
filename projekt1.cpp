@@ -2,15 +2,16 @@
 
 using namespace std;
 
-long long silnia(int n) {
-    if (n < 0)
-        return -1;
+bool czyPierwsza(int n) {
+    if (n < 2)
+        return false;
 
-    long long wynik = 1;
-    for (int i = 1; i <= n; i++)
-        wynik *= i;
+    for (int i = 2; i < n; i++) {
+        if (n % i == 0)
+            return false;
+    }
 
-    return wynik;
+    return true;
 }
 
 int main() {
@@ -22,11 +23,14 @@ int main() {
     do {
         cout << "\nMENU\n";
         cout << "0. Wyjscie\n";
-        cout << "1. Oblicz silnie\n";
+        cout << "1. Sprawdz czy liczba jest pierwsza\n";
         cin >> wyjscie;
 
         if (wyjscie == 1) {
-            cout << "Silnia = " << silnia(a) << endl;
+            if (czyPierwsza(a))
+                cout << "Liczba jest pierwsza." << endl;
+            else
+                cout << "Liczba nie jest pierwsza." << endl;
         }
 
     } while (wyjscie != 0);
