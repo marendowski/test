@@ -2,18 +2,39 @@
 
 using namespace std;
 
+bool czyPierwsza(int n) {
+    if (n < 2)
+        return false;
+
+    for (int i = 2; i < n; i++) {
+        if (n % i == 0)
+            return false;
+    }
+
+    return true;
+}
+
 int main() {
-    int a, b;
-    cout << "Podaj liczbe calkowita ";
-    cin >> a >> b;
+    int a;
+    cout << "Podaj liczbe calkowita: ";
+    cin >> a;
+
     int wyjscie;
     do {
-        cout << endl;
-        cout << endl;
-        cout << "MENU" << endl;
-        cout << "Podaj numer czynnosci, ktora chcesz wykonac" << endl;
-        cout << "0. Wyjscie" << endl;
+        cout << "\nMENU\n";
+        cout << "0. Wyjscie\n";
+        cout << "1. Sprawdz czy liczba jest pierwsza\n";
         cin >> wyjscie;
-    } while(wyjscie != 0);
+
+        if (wyjscie == 1) {
+            if (czyPierwsza(a))
+                cout << "Liczba jest pierwsza." << endl;
+            else
+                cout << "Liczba nie jest pierwsza." << endl;
+        }
+
+    } while (wyjscie != 0);
+
+
     return 0;
 }
